@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>interface</title>
+    <script src ="rpgbattle.js" async></script>
+<style type="text/css">
+body{
+    display: flex;
+    flex-direction: column;
+    background-image:url("assets/RPGBATTLEFIELD.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.panel_up{
+    display: flex;
+    height: 80%;
+}
+.panel_down{
+    height: 20%;
+    display:flex;
+    margin-top: 5%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.group_foe_g{/*positionnent du groupe*/
+    display: flex;
+    margin-top: 5%;
+    margin-left:20%;
+}
+.group_foe_1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.group_foe_2{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    flex-direction: column;
+}
+.group_heroes{
+    margin-top: 5%;
+    margin-left: 30%;
+    display: flex;
+    flex-direction:column;
+}
+.choix_action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    border-style: solid;
+    margin-right: 5%;
+    background-color: white;
+}
+.choix_items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    border-style: solid;
+    margin-right: 5%;
+    visibility: hidden;
+    background-color: white;
+
+}
+.choix_att_spe{
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    width: 30%;
+    border-style:solid;
+    margin-right: 5%;
+    visibility: hidden;
+    z-index: 10;
+    background-color: white;
+}
+.display_perso{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    background-color: white;
+}
+.ligne1{
+    display: flex;
+    justify-content:space-evenly;
+}
+.ligne2{
+    display: flex;
+    justify-content:space-evenly;
+}
+.case{
+    border-style: solid;
+}
+.dialog_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    border-style:solid;
+    margin-right:5%;
+    background-color: white;
+}
+.choix_action_p{
+    font-weight: bold;
+}
+.choix_magie_p{
+    font-weight:bold ;
+}
+.display_foe1{
+    visibility: hidden;
+    background-color: white;
+    border-style: solid;
+}
+.display_foe2{
+    visibility: hidden;
+    background-color: white;
+    border-style: solid;
+}
+.display_foe3{
+    visibility: hidden;
+    background-color: white;
+    border-style: solid;
+}
+
+#heroe_c1{
+    position: absolute;
+    visibility: hidden;
+    z-index:10;
+}
+.win_screen{
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+.lose_screen{
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+
+</style>
+</head>
+
+<body>
+    <img id="win_screen" src="">
+    <img id="lose_screen" src="">
+<div class="panel_up">
+
+    <div class="group_foe_g">
+
+        <div class="group_foe_1"> <!-- 2 ennemis-->
+
+            <img id="foe1"
+             src="assets/Characters/alolan_diglett_animation_by_snivy101_datcllq.gif"
+             alt="Diglett"> 
+            <img id="foe2"
+             src="assets/Characters/alolan_exeggutor_animation_by_snivy101_daerjqk.gif" 
+             alt="Exeggutor">
+
+        </div>
+
+        <div class="group_foe_2"> <!-- 1 ennemi-->
+
+            <img id="Foe3"
+            src="assets/Characters/popplio_sprite_animation_by_snivy101_da3d4lj.gif"
+            alt="Popplio">
+        </div>
+
+    <div class="display_foe1">
+        <p id="monstre1"> Monstre 1</p>
+        <p>PV:</p> <p id="pvmonstre1"> 100</p>
+        <p>PM:</p> <p id="pmmonstre1"> 60</p>    
+    </div>
+
+    <div class="display_foe2">
+        <p id="monstre2"> Monstre 2</p>
+        <p>PV:</p> <p id="pvmonstre2"> 100</p>
+        <p>PM:</p> <p id="pmmonstre2"> 60</p>
+    </div>
+
+    <div class="display_foe3">
+        <p id="monstre3"> Monstre 3</p>
+        <p>PV:</p> <p id="pvmonstre3"> 100</p>
+        <p>PM:</p> <p id="pmmonstre3"> 60</p>
+    </div>      
+    </div>
+    <div id="actionCentre"></div>
+    <img id="hero_c1"
+    src="assets/Characters/salandit_animation_by_snivy101_dabc0g7.gif"
+        alt="Salandit">
+    <div class="group_heroes">
+        <img id="poke1"
+            src="assets/Characters/salandit_animation_by_snivy101_dabc0g7.gif"
+                alt="Salandit">
+        <img id="poke2"
+            src="assets/Characters/alolan_vulpix_animation_by_snivy101_dahakzz.gif"
+            alt="Vulpix">
+        <img id="poke3"
+            src="assets/Characters/trevenant_animation_by_snivy101_dao9k1n.gif"
+            alt="Trevenant">
+            <img id="poke4"
+            src="assets/Characters/zygarde_10__animation_by_snivy101_dbdmmv7.gif"
+            alt="zygarde">
+    </div>
+
+</div>
+<div class="panel_down">
+    <div class="choix_action">
+        <p>Action:</p>
+        <p id="Attack">attaque</p>
+        <p id="Defense">defense</p>
+        <p id="Special Att."> Attaque spécial</p>
+    </div>
+    <div class="choix_att_spe">
+        <p>Att.Spé:</p>
+        <p id="Att.Spé n°1"> Heal</p>
+        <p id="Att.Spé n°2"> LASER BEAM</p>
+        </div>
+    <div class="display_perso">
+        <div class="ligne1">
+        <div class="case">
+            <img id="imgRaichu"
+            src="assets/Characters/salandit_animation_by_snivy101_dabc0g7.gif">
+                <p id="nomSalandit"> Salandit</p>
+                <p>PV:</p><p id="pvSalandit"> 30</p>
+                <p>PM:</p><p id="pmSAlandit">25</p>
+        </div>
+        <div class="case">
+            <img id="imgVulpix"
+            src="assets/Characters/alolan_vulpix_animation_by_snivy101_dahakzz.gif">
+                <p id="nomVulpix"> Vulpix</p>
+                <p>PV:</p> <p id="pvVulpix"> 30</p>
+                <p>PM:</p><p id="pmVulpix">25</p>
+        </div>
+        <div class="ligne2">
+            <div class="case">
+                <img id="imgPopplio"
+                src="assets/Characters/trevenant_animation_by_snivy101_dao9k1n.gif">
+                    <p id="nomTrevenant"> Trevenant</p>
+                    <p>PV:</p> <p id="pvTrevenant"> 25</p>
+                    <p>PM:</p><p id="pmTrevenant">30</p>
+            </div>
+            <div class="case">
+                <img id="imgSalandit"
+                src="assets/Characters/zygarde_10__animation_by_snivy101_dbdmmv7.gif">
+                    <p id="nomZygarde"> Zygarde</p>
+                    <p>PV:</p> <p id="pvZygarde"> 30</p>
+                    <p>PM:</p><p id="pmZygarde">35</p>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    <div class="dialog_1">
+        <p id="dialogue"> Tour de Salandit</p>
+    </div>
+</div>
+</body>
+    
+</html>
